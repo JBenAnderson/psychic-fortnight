@@ -30,7 +30,6 @@ app.get("/data", function (req, res) {
 app.post("/test", function (req, res) {
   console.log(req.body.username, req.body.password);
   res.send(req.body.username + " " + req.body.password);
-  res.send();
 });
 
 // add user
