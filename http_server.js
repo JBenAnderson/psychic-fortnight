@@ -21,15 +21,11 @@ app.use(express.static("public"));
 // init the data store
 db.defaults({ users: [] }).write();
 
+let port = process.env.PORT || 3000;
+
 // return all users
 app.get("/data", function (req, res) {
   res.send(db.get("users").value());
-});
-
-// post route
-app.post("/test", function (req, res) {
-  console.log(req.body.username, req.body.password);
-  res.send(req.body.username + " " + req.body.password);
 });
 
 // add user
@@ -54,6 +50,6 @@ app.post("/add", function (req, res) {
 
 // start server
 // -----------------------
-app.listen(3000, function () {
-  console.log("Running on port 3000!");
+app.listen(port, function () {
+  console.log(`Running on port ${port}`);
 });
